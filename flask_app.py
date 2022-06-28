@@ -1,11 +1,11 @@
-from flask import Flask, make_response
+from flask import Flask, render_template, make_response
 
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET"])
-def index():
-    response = make_response("Here, take some cookie!")
+@app.route("/")
+def home():
+    response = make_response(render_template('index.html'))
     arr = [1, 2, 3]
     response.headers["Set-Cookie"] = "myfirstcookie="+str(arr)
     return response

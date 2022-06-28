@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body onload="onLoad();">
+    <button type="button" id="btn1" onclick="onClick(this);" class="btn btn-primary">Primary</button>
+    <button type="button" id="btn2" onclick="onClick(this);" class="btn btn-secondary">Secondary</button>
+    <button type="button" id="btn3" onclick="onClick(this);" class="btn btn-success">Success</button>
+    <button type="button" id="btn4" onclick="onClick(this);" class="btn btn-danger">Danger</button>
+    <button type="button" id="btn5" onclick="onClick(this);" class="btn btn-warning">Warning</button>
+    <button type="button" id="btn6" onclick="onClick(this);" class="btn btn-info">Info</button>
+    <button type="button" id="btn7" onclick="onClick(this);" class="btn btn-light">Light</button>
+    <button type="button" id="btn8" onclick="onClick(this);" class="btn btn-dark">Dark</button>
+    <button type="button" id="btn9" onclick="onClick(this);" class="btn btn-link">Link</button>
+
+    <script>
+        function onClick(element) {
+            element.innerHTML = "Clicked";
+            checkCookie(element.id)
+        }
+
+        function setCookie(cookieName, cookieValue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cookieName + '=' + cookieValue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cookieName) {
+            let name = cookieName + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie(element) {
+            let visited = getCookie("visited");
+            if (visited != "") {
+                var visitedArray = JSON.parse(visited)
+                visitedArray.push(element)
+                setCookie("visited", JSON.stringify(visitedArray), 30);
+            } else {
+                var visitedArray = [element]
+                setCookie("visited", JSON.stringify(visitedArray), 30);
+            }
+        }
+        function onLoad() {
+            let visited = getCookie("visited");
+            if (visited != "") {
+                var visitedArray = JSON.parse(visited)
+                for (let i = 0; i < visitedArray.length; i++) {
+                    document.getElementById(visitedArray[i]).innerHTML = "Clicked";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
