@@ -1,32 +1,34 @@
 {% include "header.html" %}
 {% block content %}
-<div class="row">
-    <div class="col-md">
-        <button type="button" id="btn1" onclick="onClick(this);" class="btn btn-primary">Primary</button>
+<body onload="onLoad();">
+    <div class="row">
+        <div class="col-md">
+            <button type="button" id="btn1" onclick="onClick(this);" class="btn btn-primary">Primary</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn2" onclick="onClick(this);" class="btn btn-secondary">Secondary</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn3" onclick="onClick(this);" class="btn btn-success">Success</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn4" onclick="onClick(this);" class="btn btn-danger">Danger</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn5" onclick="onClick(this);" class="btn btn-warning">Warning</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn6" onclick="onClick(this);" class="btn btn-info">Info</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn7" onclick="onClick(this);" class="btn btn-light">Light</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn8" onclick="onClick(this);" class="btn btn-dark">Dark</button>
+        </div>
+        <div class="col-md">
+            <button type="button" id="btn9" onclick="onClick(this);" class="btn btn-link">Link</button>
+        </div>
     </div>
-    <div class="col-md">
-        <button type="button" id="btn2" onclick="onClick(this);" class="btn btn-secondary">Secondary</button>
-    </div>
-    <div class="col-md">
-        <button type="button" id="btn3" onclick="onClick(this);" class="btn btn-success">Success</button>
-    </div>
-    <div class="col-md">
-        <button type="button" id="btn4" onclick="onClick(this);" class="btn btn-danger">Danger</button>
-    </div>
-    <div class="col-md">
-        <button type="button" id="btn5" onclick="onClick(this);" class="btn btn-warning">Warning</button>
-    </div>
-    <div class="col-md">
-        <button type="button" id="btn6" onclick="onClick(this);" class="btn btn-info">Info</button>
-    </div>
-    <div class="col-md">
-        <button type="button" id="btn7" onclick="onClick(this);" class="btn btn-light">Light</button>
-    </div>
-    <div class="col-md">
-        <button type="button" id="btn8" onclick="onClick(this);" class="btn btn-dark">Dark</button>
-    </div>
-    <div class="col-md">
-        <button type="button" id="btn9" onclick="onClick(this);" class="btn btn-link">Link</button>
-    </div>
-</div>
+</body>
 {% endblock %}
