@@ -1,6 +1,4 @@
 {% include "header.html" %}
-{% block content %}
-<body onload="onLoad();">
     <div class="row">
         <div class="col-md">
             <button type="button" id="btn1" onclick="onClick(this);" class="btn btn-primary">Primary</button>
@@ -30,5 +28,5 @@
             <button type="button" id="btn9" onclick="onClick(this);" class="btn btn-link">Link</button>
         </div>
     </div>
-</body>
-{% endblock %}
+
+{% include "footer.html" %}
