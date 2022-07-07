@@ -50,8 +50,11 @@ def get_login():
     password_hash = getHash(password)
     connection = getConnection()
     cursor = connection.cursor()
-    query = """ SELECT password from user_credentials WHERE email='""" + email + """';"""
-    cursor.execute(query)
+    query = """ SELECT password from user_credentials WHERE email=%s """
+    # cursor.prepare(query)
+    # cursor.execute("prepare login (text) as SELECT password from user_credentials WHERE email = $1")
+    # cursor.execute(f"execute login (email)", email)
+    cursor.execute(query, (email,))
     database_password = cursor.fetchone()[0]
     if password_hash == database_password:
         print("True")
